@@ -1,4 +1,4 @@
-function ln(x) {
+function ln(x: number) {
   // Math.log is actually ln, but i write the full equation here
   // Math.log(Math.E) is actually 1
   return Math.log(x) / Math.log(Math.E);
@@ -10,6 +10,42 @@ function calculate(targetTemperature: number, ambientTemperature: number, initia
 
 // [Desmos | Graphing Calculator](https://www.desmos.com/calculator)
 // y\ =\ \exp\left(-\left(x\ \cdot\ 0.00087381\right)\right)\ \cdot\ \left(90\ -\ 20\right)\ +\ 20
-function plot(secondsElapsed: number, targetTemperature: number, ambientTemperature: number, initialTemperature: number) {
+function plot(secondsElapsed: number, ambientTemperature: number, initialTemperature: number) {
   return Math.exp(-(secondsElapsed * 0.00087381)) * (initialTemperature - ambientTemperature) + ambientTemperature
 }
+
+
+function PController(currentValue: number, target: number) {
+  const error = target - currentValue;
+  // console.log(`currentValue ${currentValue} target ${target} error ${error}`);
+  return 1.1 * error;
+}
+
+
+function IController(currentValue: number, target: number) {
+  // const error = target - currentValue;
+  // // console.log(`currentValue ${currentValue} target ${target} error ${error}`);
+  // return 1.1 * error;
+  return 0;
+}
+
+function DController(currentValue: number, target: number) {
+  // const error = target - currentValue;
+  // // console.log(`currentValue ${currentValue} target ${target} error ${error}`);
+  // return 1.1 * error;
+  return 0;
+}
+
+
+function main() {
+  let initialTemperature = 90;
+  let currentTemp = initialTemperature;
+  for (var t = 0; t < 100; t += 10) {
+    // -(ln((85-20) / (90 - 20)) / 0.00087381)
+    currentTemp = plot(t, 20, currentTemp);
+    currentTemp += (PController(currentTemp, 90) + IController(currentTemp, 90) + DController(currentTemp, 90));
+    console.log(`currentTemp = ${currentTemp} original ${plot(t, 20, initialTemperature)}`);
+  }
+}
+
+main();
