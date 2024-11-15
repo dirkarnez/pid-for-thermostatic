@@ -3,7 +3,7 @@ function ln(x) {
   // Math.log(Math.E) is actually 1
   return Math.log(x) / Math.log(Math.E);
 }
-
+// [Water Cooling Calculator](https://www.omnicalculator.com/food/water-cooling#the-physics-of-a-piping-hot-cup-of-tea)
 function calculate() {
-  return -(ln((21-20) / (90 - 20)) / 0.00087381);
+  return -(ln((targetTemperature-ambientTemperature) / (initialTemperature - ambientTemperature)) / 0.00087381);
 }
