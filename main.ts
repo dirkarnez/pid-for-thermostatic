@@ -8,7 +8,8 @@ function calculate(targetTemperature: number, ambientTemperature: number, initia
   return -(ln((targetTemperature-ambientTemperature) / (initialTemperature - ambientTemperature)) / 0.00087381);
 }
 
-
+// [Desmos | Graphing Calculator](https://www.desmos.com/calculator)
+// y\ =\ \exp\left(-\left(x\ \cdot\ 0.00087381\right)\right)\ \cdot\ \left(90\ -\ 20\right)\ +\ 20
 function plot(secondsElapsed: number, targetTemperature: number, ambientTemperature: number, initialTemperature: number) {
   return Math.exp(-(secondsElapsed * 0.00087381)) * (initialTemperature - ambientTemperature) + ambientTemperature
 }
