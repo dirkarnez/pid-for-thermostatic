@@ -1,8 +1,18 @@
-function ln(x: number) {
+function log(y) {
+  // Math.log is ln, so i must precisely set base 10 to make it work as intended log
+  return Math.log(y) / Math.LN10; // or Math.log(10)
+}
+
+function ln(x) {
   // Math.log is actually ln, but i write the full equation here
   // Math.log(Math.E) is actually 1
-  return Math.log(x) / Math.log(Math.E);
+  return log(x) / log(Math.E);
 }
+
+function log_with_base(y, base) {
+  return log(y) / log(base);
+}
+
 // [Water Cooling Calculator](https://www.omnicalculator.com/food/water-cooling#the-physics-of-a-piping-hot-cup-of-tea)
 function calculate(targetTemperature: number, ambientTemperature: number, initialTemperature: number) {
   return -(ln((targetTemperature-ambientTemperature) / (initialTemperature - ambientTemperature)) / 0.00087381);
