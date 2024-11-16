@@ -25,6 +25,14 @@ function plot(secondsElapsed: number, ambientTemperature: number, initialTempera
 }
 
 
+/*
+YES! multiply error is correct. the name "error" is confusing.
+We are not making a bigger mistake, but try to make big moves to see if the PID are approach to target.
+As can see error is calculated as target minus currentValue, not reversely,
+if currentValue less than target, we get positive error value, we multiply this positive error value to
+get next mesaurement of currentValue no more less than target, vice versa.
+However, error is a corect name because it is indeed an error (currentValue not equal target is indeed error)
+*/
 function PController(currentValue: number, target: number) {
   const error = target - currentValue;
   // console.log(`currentValue ${currentValue} target ${target} error ${error}`);
