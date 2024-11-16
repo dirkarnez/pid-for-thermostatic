@@ -1,16 +1,12 @@
-function log(y) {
+function log(y: number) {
   // Math.log is ln, so i must precisely set base 10 to make it work as intended log
   return Math.log(y) / Math.LN10; // or Math.log(10)
 }
 
-function ln(x) {
+function ln(x: number) {
   // Math.log is actually ln, but i write the full equation here
   // Math.log(Math.E) is actually 1
   return log(x) / log(Math.E);
-}
-
-function log_with_base(y, base) {
-  return log(y) / log(base);
 }
 
 // [Water Cooling Calculator](https://www.omnicalculator.com/food/water-cooling#the-physics-of-a-piping-hot-cup-of-tea)
@@ -36,22 +32,29 @@ However, error is a corect name because it is indeed an error (currentValue not 
 function PController(currentValue: number, target: number) {
   const error = target - currentValue;
   // console.log(`currentValue ${currentValue} target ${target} error ${error}`);
-  return 1.1 * error;
+  return 1.2 * error;
 }
 
-
+/*
+dt is seconds, since this code uses seconds as time unit, i skip dt here
+*/
+var errorSum = 0;
 function IController(currentValue: number, target: number) {
-  // const error = target - currentValue;
-  // // console.log(`currentValue ${currentValue} target ${target} error ${error}`);
-  // return 1.1 * error;
-  return 0;
+  const error = target - currentValue;
+  const dt = 1; // 1 seconds
+  errorSum += error * dt;
+  // console.log(`currentValue ${currentValue} target ${target} error ${error}`);
+  return 0.5 * errorSum;
 }
 
+var previousError = 0;
 function DController(currentValue: number, target: number) {
-  // const error = target - currentValue;
-  // // console.log(`currentValue ${currentValue} target ${target} error ${error}`);
-  // return 1.1 * error;
-  return 0;
+  const error = target - currentValue;
+  const dt = 1; // 1 seconds
+  const errorRate = (error - previousError) / dt;
+  previousError = error;
+  // console.log(`currentValue ${currentValue} target ${target} error ${error}`);
+  return 0.5 * errorRate;
 }
 
 
