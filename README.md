@@ -1,5 +1,7 @@
 pid-for-thermostatic
 ====================
+### Based on
+- [Water Cooling Calculator](https://www.omnicalculator.com/food/water-cooling)
 ### TODOs
 - [ ] Should model heating process
   - This stupid PID code assumes my so call thermostatic system can heat up object instantly (e.g control the tracked parameter directly)
