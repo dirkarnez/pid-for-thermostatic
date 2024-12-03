@@ -10,3 +10,4 @@ pid-for-thermostatic
       - e.g. Vehicle PID: control the angle of steering wheel of vehicle to affect the fact that whether it travel in a expected path
 - [ ] Auto-tuning
   - [br3ttb/Arduino-PID-AutoTune-Library](https://github.com/br3ttb/Arduino-PID-AutoTune-Library)
+    - [arduino-pid-library-tester/pid-tester/pid-tester.ino at master · br3ttb/arduino-pid-library-tester](https://github.com/br3ttb/arduino-pid-library-tester/blob/master/pid-tester/pid-tester.ino)
