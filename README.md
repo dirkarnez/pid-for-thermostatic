@@ -13,3 +13,5 @@ pid-for-thermostatic
   - [br3ttb/Arduino-PID-AutoTune-Library](https://github.com/br3ttb/Arduino-PID-AutoTune-Library)
     - [arduino-pid-library-tester/pid-tester/pid-tester.ino at master · br3ttb/arduino-pid-library-tester](https://github.com/br3ttb/arduino-pid-library-tester/blob/master/pid-tester/pid-tester.ino)
 - [ ] generic pid
+- [ ] non-auto-tuning
+  - [dirkarnez/nouislider-playground](https://github.com/dirkarnez/nouislider-playground)
