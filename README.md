@@ -15,3 +15,6 @@ pid-for-thermostatic
 - [ ] generic pid
 - [ ] non-auto-tuning
   - [dirkarnez/nouislider-playground](https://github.com/dirkarnez/nouislider-playground)
+     
+### Tutorials
+- [SS2867/SmartThermalCup: A smart thermal cup that uses the sensor to detect the temperature and use the heating module to heat the liquid in real time, thereby achieving long-term heat preservation. Project for Microcontroller Contest 2324](https://github.com/SS2867/SmartThermalCup)
